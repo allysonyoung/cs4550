@@ -1,0 +1,16 @@
+.form-inline-login {
+  display: flex;
+}
+
+.login-btn {
+  margin-left: 10px;
+}
+
+.row {
+  margin: 30px;
+}
+
+.card-img-top {
+  background-color: #eee;
+  height: 200px;
+}

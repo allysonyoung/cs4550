@@ -1,0 +1,56 @@
+<!doctype html>
+  <head>
+    <title>Application Design</title>
+  </head>
+  <body>
+  <div>
+    <h1>User-First Design</h1>
+      <p>User stories:</p>
+      <ol>
+        <li>As a new user, I should be able to register a new account.
+          <ul>
+            <li>User visits the form/new page of the micro-blogging application.</li>
+            <li>User fills out their full name, uploads a profile picture, enters a username/handle, and a password.</li>
+            <li>User then clicks the 'Register' button, and their account is now created.</li>
+          </ul>
+        </li>
+        <li>As a normal user, I should be able to follow someone.
+          <ul>
+            <li>User visits the message index page, which has a feed of messages from all users.</li>
+            <li>User clicks on the 'Follow' button to the right of the message for whoever they want to follow. The user is now following that person.</li>
+            <li>Your feed now updates with 'You are now following [user]'.</li>
+          </ul>
+        </li>
+        <li>As a normal user, I should be able to post a message.
+          <ul>
+            <li>User visits the message new page.</li>
+            <li>User fills out the 'New Message' form with a message that allows for #hashtags and @mentions.</li>
+            <li>User then clicks the 'Post' button that publishes their new message on their account, and this message is now visible to any user that follows them.</li>
+          </ul>
+        </li>
+        <li>As a normal user, I should be able to see messages from other people that I follow.
+          <ul>
+            <li>User visits the messages index, which has a feed of messages from users that they follow.</li>
+            <li>User can visit a specific person's page and see messages from just that person. You would need to click on the person's username in the feed.</li>
+          </ul>
+        </li>
+        <li>As a normal user, I should be able to see all messages that use the same hashtag.
+          <ul>
+            <li>User visits their account home page with the message feed.</li>
+            <li>User navigates to the top right corner of the page and enters a hashtag to search for.</li>
+            <li>A new page is brought up with a list of messages that contain the hashtag being searched for. If there are no messages with that hashtag, a message appears on the page telling the user there are no messages containing that hashtag.</li>
+            <li>User can also click on a hashtag in the message feed, which brings them to the same page containing a list of messages that used that same hashtag.</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+    <div>
+    <h1>Data-First Design</h1>
+      <p>Resources needed for the application:
+      <ol>
+        <li>Users</li>
+        <li>Messages</li>
+      </ol>
+    </div>
+  </body>
+</html>

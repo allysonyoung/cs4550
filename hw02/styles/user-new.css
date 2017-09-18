@@ -1,0 +1,17 @@
+.form-inline-login {
+  display: flex;
+}
+
+.login-btn {
+  margin-left: 10px;
+}
+
+#form {
+  margin: 30px auto;
+  width: 40%;
+}
+
+.form-title,
+.form-description {
+  text-align: center;
+}

@@ -1,0 +1,16 @@
+.form-inline-login {
+  display: flex;
+}
+
+.login-btn {
+  margin-left: 10px;
+}
+
+.messages-index-title {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.list-group {
+  margin: 15px 100px;
+}

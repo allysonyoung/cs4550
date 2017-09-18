@@ -1,0 +1,27 @@
+.form-inline-login {
+  display: flex;
+}
+
+.login-btn {
+  margin-left: 10px;
+}
+
+.card-img-top {
+  background-color: #eee;
+  height: 200px;
+  margin: 30px auto 5px auto;
+  width: 200px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-messages {
+  text-align: left;
+}
+
+.card-message {
+  border-bottom: solid 1px #eee;
+}

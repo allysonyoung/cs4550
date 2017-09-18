@@ -1,0 +1,11 @@
+.form-inline-login {
+  display: flex;
+}
+
+.login-btn {
+  margin-left: 10px;
+}
+
+.card {
+  margin: 30px 200px;
+}
