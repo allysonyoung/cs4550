@@ -1,45 +1,53 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <title>Application Design Notes</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   </head>
   <body>
   <div>
     <h1>User-First Design</h1>
       <p>User stories:</p>
       <ol>
-        <li>As a new user, I should be able to register a new account.
+        <li>"As a new user, I should be able to register a new account."
           <ul>
-            <li>User visits the form/new page of the micro-blogging application.</li>
-            <li>User fills out their full name, uploads a profile picture, enters a username/handle, and a password.</li>
-            <li>User then clicks the 'Register' button, and their account is now created.</li>
+            <li>Bob visits the form/new page of the micro-blogging application.</li>
+            <li>He fills out his full name, uploads a profile picture, enters a username/handle, and a password.</li>
+            <li>He then clicks the 'Register' button, and his account is now created.</li>
           </ul>
         </li>
-        <li>As a normal user, I should be able to follow someone.
+        <li>"As a registered user, I should be able to follow someone."
           <ul>
-            <li>User visits the message index page, which has a feed of messages from all users.</li>
-            <li>User clicks on the 'Follow' button to the right of the message for whoever they want to follow. The user is now following that person.</li>
-            <li>Your feed now updates with 'You are now following [user]'.</li>
+            <li>Jen visits the user-show page of a specific person, which has that that user's username, name, and messages.</li>
+            <li>She clicks on the 'Follow' button. She is now following that person.</li>
+            <li>Jen's profile now updates with a the new follow.</li>
           </ul>
         </li>
-        <li>As a normal user, I should be able to post a message.
+        <li>"As a registered user, I should be able to post a message."
           <ul>
-            <li>User visits the message new page.</li>
-            <li>User fills out the 'New Message' form with a message that allows for #hashtags and @mentions.</li>
-            <li>User then clicks the 'Post' button that publishes their new message on their account, and this message is now visible to any user that follows them.</li>
+            <li>Eric visits the message new page.</li>
+            <li>He fills out the 'New Message' form with a message that allows for #hashtags and @mentions.</li>
+            <li>He then clicks the 'Post' button that publishes their new message on their account, and this message is now visible to any user that follows them.</li>
+            <li>His user page now updates with that new message.</li>
           </ul>
         </li>
-        <li>As a normal user, I should be able to see messages from other people that I follow.
+        <li>"As a registered user, I should be able to see messages from other people that I follow."
           <ul>
-            <li>User visits the messages index, which has a feed of messages from users that they follow.</li>
-            <li>User can visit a specific person's page and see messages from just that person. You would need to click on the person's username in the feed.</li>
+            <li>Sarah visits the messages-index page, which has a feed of messages from users that they follow.</li>
+            <li>She can visit a specific person's page and see messages from just that person by clicking on the person's username in the feed.</li>
           </ul>
         </li>
-        <li>As a normal user, I should be able to see all messages that use the same hashtag.
+        <li>"As a registered user, I should be able to see all messages that use the same hashtag."
           <ul>
-            <li>User visits their account home page with the message feed.</li>
-            <li>User navigates to the top right corner of the page and enters a hashtag to search for.</li>
-            <li>A new page is brought up with a list of messages that contain the hashtag being searched for. If there are no messages with that hashtag, a message appears on the page telling the user there are no messages containing that hashtag.</li>
-            <li>User can also click on a hashtag in the message feed, which brings them to the same page containing a list of messages that used that same hashtag.</li>
+            <li>Emma visits the message-index page.</li>
+            <li>She navigates to the top right corner of the page and enters a hashtag to search for.</li>
+            <li>She is brought to a messages-show page with a list of messages that contain the hashtag being searched for. If there are no messages with that hashtag, a message appears on the page telling the user there are no messages containing that hashtag.</li>
+            <li>She can also click on a hashtag in the message feed, which brings her to the same page containing a list of messages that used that same hashtag.</li>
           </ul>
         </li>
       </ol>
@@ -61,14 +69,50 @@
         <ul>
           <li>Information of user who posted the message (name and username)</li>
           <li>Date and time posted</li>
-          <li>Contents of the message</li>
+          <li>Text contents of the message (if applicable)</li>
+          <li>Image contents of the message (if applicable)</li>
+          <li>Hashtags in the text contents of the message (if applicable)</li>
         </ul>
       </ol>
-      <p>Data constraints/issues:</p>
+      <h3>Data constraints:</h3>
       <ul>
-          <li>There can't be more than one account using the same email address.</li>
-          <li>How will profile picture images be stored in the database?</li>
+        <li>There can't be more than one account using the same email address.</li>
+        <li>User can post a message with just text or just an image or both, but they must have at least text or image to be able to post a message.</li>
+        <li>Usernames must be unique. There can't be more than one account with the same blog handle.</li>
+        <li>'Delete Message' button is only visible on messages that you authored.</li>
+        <li>'Delete Account' button is only visible to you and your own account.</li>
+       </ul>
+      <h3>Questions to address:</h3>
+      <ul>
+        <li>How will profile picture images be stored in the database?</li>
+        <li>How should hashtags be stored and sorted in the database?</li>
+      </ul>
+    </div>
+    <div>
+    <h1>RESTful Routes</h1>
+    <p>Descriptions of what will appear on each page.</p>
+    <ol>
+      <li>Users
+        <ul>
+          <li>Create - After a user account is created, they are brought to the user's initial personal page that just shows their profile picture, full name, and username from the information they entered in the registration form. This page will show they have no messages, followers and are not following anyone yet. User must click 'Post New Message' to create their first message.</li>
+          <li>Retrieve - User's personal page that shows their profile picture, full name, username, list of followers and following, and their messages.</li>
+          <li>Update - User's personal page updates when they enter a new post or when they have a new follower or when they follow someone new.</li>
+          <li>Delete - Removes the user's profile and messages from the database. After deleting a user page, user is brought to the homepage to register as a new user.</li>
+          <li>Index - Shows a list of all existing users including their profile picture and username.</li>
+          <li>New - A page that contains a form to register as a new user. User must enter their full name, email address, a username, password, and a profile picture to create an account. If a user is trying to create an account using an existing email address or username, they will be prompted to either try logging in with that email address and/or choose a different username.</li>
         </ul>
+      </li>
+      <li>Messages
+        <ul>
+          <li>Create - After a message is created, user is brought to their profile page with their new message updated in their feed.</li>
+          <li>Retrieve - Shows the message, along with the user who posted it, their username, and a timestamp and date of when the message was posted.</li>
+          <li>Update - Shows the message page, updated.</li>
+          <li>Delete - Removes the post. User is then brought back to their personal page and their list of messages is updated. You can only delete a message if you authored it.</li>
+          <li>Index - Shows a list of all messages from all users.</li>
+          <li>New - A page that contains a form to post a new message as a registered user. The form contains a text box and an image field. A message must at least contain either a text message or image.</li>
+        </ul>
+      </li>
+    </ol>
     </div>
   </body>
 </html>
