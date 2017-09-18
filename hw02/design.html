@@ -1,6 +1,6 @@
 <!doctype html>
   <head>
-    <title>Application Design</title>
+    <title>Application Design Notes</title>
   </head>
   <body>
   <div>
@@ -46,11 +46,29 @@
     </div>
     <div>
     <h1>Data-First Design</h1>
-      <p>Resources needed for the application:
+      <p>Resources needed for the application and what data each resource would need:
       <ol>
         <li>Users</li>
+        <ul>
+          <li>Name</li>
+          <li>Username/handle</li>
+          <li>Password</li>
+          <li>Email</li>
+          <li>Profile Picture</li>
+          <li>Messages</li>
+        </ul>
         <li>Messages</li>
+        <ul>
+          <li>Information of user who posted the message (name and username)</li>
+          <li>Date and time posted</li>
+          <li>Contents of the message</li>
+        </ul>
       </ol>
+      <p>Data constraints/issues:</p>
+      <ul>
+          <li>There can't be more than one account using the same email address.</li>
+          <li>How will profile picture images be stored in the database?</li>
+        </ul>
     </div>
   </body>
 </html>
